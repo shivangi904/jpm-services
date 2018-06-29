@@ -8,8 +8,6 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Exception to report all request errors.
- * 
- * @author Mindtree Ltd.
  *
  */
 @Data

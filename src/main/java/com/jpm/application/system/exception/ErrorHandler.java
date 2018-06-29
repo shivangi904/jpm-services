@@ -7,20 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * This class is for handling all errors thrown
- * 
- * @author Mindtree Ltd.
- *
- */
 
 @Service
 public class ErrorHandler {
@@ -69,22 +61,6 @@ public class ErrorHandler {
 
 
 
-
-
-	@ExceptionHandler(AccessDeniedException.class)
-	@ResponseStatus(HttpStatus.FORBIDDEN)
-	@ResponseBody
-	public ErrorObject processAuthorizationExceptions(AccessDeniedException ex) {
-		LOGGER.error("Security error : ", ex);
-		ErrorObject error = new ErrorObject(env.getProperty("SEC"), ex.getMessage());
-		error.setStatus(HttpStatus.FORBIDDEN.value());
-		return error;
-	}
-
-
-
-
-
 	@ExceptionHandler(DataAccessResourceFailureException.class)
 	@ResponseStatus(HttpStatus.GATEWAY_TIMEOUT)
 	@ResponseBody
@@ -108,21 +84,6 @@ public class ErrorHandler {
 		error.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
 		return error;
 	}
-
-
-
-
-
-	@ExceptionHandler(AuthenticationException.class)
-	@ResponseStatus(HttpStatus.UNAUTHORIZED)
-	@ResponseBody
-	public ErrorObject processAuthenticationExceptions(AuthenticationException ex) {
-		LOGGER.error("Service error : ", ex);
-		ErrorObject error = new ErrorObject(env.getProperty("SEC"), ex.getMessage());
-		error.setStatus(HttpStatus.UNAUTHORIZED.value());
-		return error;
-	}
-
 
 
 

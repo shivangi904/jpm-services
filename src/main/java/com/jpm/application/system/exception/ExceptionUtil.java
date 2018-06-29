@@ -7,8 +7,6 @@ import org.springframework.validation.ObjectError;
 /**
  * Generates exception for the errors from BindingResult
  * 
- * @author Mindtree Ltd
- *
  */
 public class ExceptionUtil {
 

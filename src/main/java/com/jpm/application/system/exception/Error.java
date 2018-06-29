@@ -6,8 +6,6 @@ import lombok.Data;
 
 /**
  * An object to carry error code and a technical reason
- * 
- * @author Mindtree Ltd.
  *
  */
 @Data

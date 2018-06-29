@@ -8,5 +8,4 @@ public interface BaseService {
 
 	ResultResponse getFactorial(UserInput userInput) throws RequestException;
 
-
 }

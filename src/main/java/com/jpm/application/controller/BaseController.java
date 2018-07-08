@@ -19,13 +19,13 @@ import com.jpm.application.system.exception.ServiceException;
 public class BaseController {
 		
 	@Autowired
-	private BaseServiceImpl baseServiceImpl;
+	private BaseServiceImpl baseServiceImpl;	
 	
-	@RequestMapping(method = RequestMethod.POST, value="/factorial")
+	@RequestMapping(method = RequestMethod.POST, value="/getMax")
 	@ResponseBody
 	public ResultResponse generateFactorial(@RequestBody UserInput userInput) {
 		try {
-			return baseServiceImpl.getFactorial(userInput);
+			return baseServiceImpl.getMaxNumber(userInput);
 		} catch (Exception e) {
 			throw new ServiceException(e);
 		}

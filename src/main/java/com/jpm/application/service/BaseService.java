@@ -6,6 +6,6 @@ import com.jpm.application.system.exception.RequestException;
 
 public interface BaseService {
 
-	ResultResponse getFactorial(UserInput userInput) throws RequestException;
+	ResultResponse getMaxNumber(UserInput userInput) throws RequestException;
 
 }

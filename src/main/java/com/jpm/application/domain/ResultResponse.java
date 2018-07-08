@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class ResultResponse {
-	private int responseValue;
+	private long responseValue;
 }

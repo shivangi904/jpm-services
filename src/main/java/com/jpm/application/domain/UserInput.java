@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class UserInput {
-	private int inputNumber;
+	private int number;
+	private int divisorCount;
 }
